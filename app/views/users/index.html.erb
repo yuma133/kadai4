@@ -1,0 +1,22 @@
+<div class="row">
+<%= render "users/sidebar", book: @book %>
+<div class="col-xs-9">
+<h1>Users</h1>
+	<table class="table">
+		<thead>
+		<tr>
+			<th>image</th>
+			<th>name</th>
+		</tr>
+	    </thead>
+	    <tboddy>
+		<% @users.each do |u| %>
+		<tr>
+			<th><%= attachment_image_tag u, :profile_image, size: "25x25",fallback: "no_image.jpg" %></th>
+			<th><%= u.name %></th>
+			<th><%= link_to "Show", user_path(u.id) %></th>
+		</tr>
+		<% end %>
+	    </tboddy>
+	</table>
+</div>
